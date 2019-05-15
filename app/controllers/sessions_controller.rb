@@ -7,5 +7,13 @@ class SessionsController < ApplicationController
       u.image = auth['info']['image']
     end
 
-    sesion[:user_id] = @user.id 
+    sesion[:user_id] = @user.id
   end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
+end
